@@ -1,6 +1,11 @@
 import "./App.css";
 import { RootState } from "./redux/store";
-import { decrement, increment, incrementByAmount } from "./redux/counterSlice";
+import {
+  decrement,
+  increment,
+  incrementByAmount,
+  reset,
+} from "./redux/counterSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
@@ -35,6 +40,10 @@ function App() {
       <DecrementButton onClick={() => dispatch(decrement())}>
         <span> - </span>
       </DecrementButton>
+      <Spacer />
+      <ResetButton onClick={() => dispatch(reset())}>
+        <span>reset</span>
+      </ResetButton>
     </Wrapper>
   );
 }
@@ -84,6 +93,9 @@ const IncrementButton = styled(Button)`
 
 const DecrementButton = styled(Button)`
   background-color: blue;
+`;
+const ResetButton = styled(Button)`
+  background-color: #555;
 `;
 
 const Spacer = styled.span`
