@@ -1,12 +1,13 @@
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "./redux/store";
 import { decrement, increment, incrementByAmount } from "./redux/counterSlice";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
-  const count = useSelector((state) => state.counter.value);
+  const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
-  const [input, setInput] = useState(null);
+  const [input, setInput] = useState(0);
 
   return (
     <div className="App">
